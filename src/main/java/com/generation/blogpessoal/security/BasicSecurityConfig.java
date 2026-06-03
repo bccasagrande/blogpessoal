@@ -50,10 +50,13 @@ public class BasicSecurityConfig {
                 .requestMatchers("/usuarios/logar").permitAll()
                 .requestMatchers("/usuarios/cadastrar").permitAll()
                 .requestMatchers(HttpMethod.OPTIONS).permitAll()
+                .requestMatchers("/swagger-ui/**").permitAll()
+                .requestMatchers("/v3/api-docs/**").permitAll()
                 .anyRequest().authenticated())
             .httpBasic(basic -> {})
             .addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 }
+
 
