@@ -1,7 +1,9 @@
 package com.generation.blogpessoal.model;
 
 import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -33,6 +35,16 @@ public class Usuario {
     @JsonIgnoreProperties("usuario")
     private List<Postagem> postagem;
 
+    public Usuario() {}
+
+    public Usuario(Long id, String nome, String usuario, String senha, String foto) {
+        this.id = id;
+        this.nome = nome;
+        this.usuario = usuario;
+        this.senha = senha;
+        this.foto = foto;
+    }
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -51,3 +63,4 @@ public class Usuario {
     public List<Postagem> getPostagem() { return postagem; }
     public void setPostagem(List<Postagem> postagem) { this.postagem = postagem; }
 }
+
